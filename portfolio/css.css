@@ -1,0 +1,1069 @@
+/* ==========================================================================
+   1. CARREGAMENTO DAS FONTES (Localizadas na tua pasta assets/)
+   ========================================================================== */
+
+@font-face {
+    font-family: 'AstonScript';
+    src: url('assets/Aston Script.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zeitgeist';
+    src: url('assets/Zeitgeist MT Std Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   2. RESET E DEFINIÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Textura de papel sobreposta a 100% do ecrã (analógico) */
+.paper-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/paper-texture.jpg'); /* Substitui pela tua textura se necessário */
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Estrutura de Secções de Ecrã Inteiro */
+.page-section {
+    min-height: 100vh;
+    padding: 140px 50px 50px 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   3. NAVBAR FLUTUANTE (Aston Script)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    z-index: 900;
+}
+
+.navbar nav a, .logo-top {
+    font-family: 'AstonScript', sans-serif;
+    font-size: 2.2rem;
+    color: #333;
+    text-decoration: none;
+    margin-right: 35px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.navbar nav a:hover, .logo-top:hover {
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. HERO SECTION - LOGÓTIPO EM VÍDEO MP4
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.main-logo-container {
+    width: 550px;
+    max-width: 90%;
+    height: auto;
+    cursor: pointer;
+}
+
+#logo-video {
+    width: 85vw;
+    height: auto;
+
+    position: absolute;
+    top: 10%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.hero-intro-text {
+    position: absolute;
+    bottom: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    max-width: 550px;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #444;
+}
+
+/* ==========================================================================
+   5. MARQUEE & MENU DAS BOCAS (Estilo Colagem)
+   ========================================================================== */
+.section-bocas {
+    justify-content: center;
+    align-items: center;
+}
+
+.marquee-container {
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Este bloco junta todos os spans numa linha infinita */
+.marquee-inner {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-marquee 20s linear infinite; /* Ajusta os segundos para a velocidade que desejares */
+}
+
+.marquee-inner span {
+    font-family: 'Zeitgeist', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-right: 40px; /* Espaço entre as repetições de texto */
+}
+
+/* Como temos 4 repetições, andar metade (-50%) garante o reset invisível */
+@keyframes scroll-marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+.collage-container {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ==========================================================================
+   SECTION BOCAS — NAVLINE
+   ========================================================================== */
+
+.navline-container {
+    height: 300vh;
+    position: relative;
+    width: 100%;
+}
+
+.navline-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.navline-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.navline-words {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 120px;
+    align-items: center;
+}
+
+.navline-word {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: #1a1a1a;
+    cursor: pointer;
+}
+
+.navline-letters {
+    display: flex;
+}
+
+.navline-letters span {
+    font-family: 'Zeitgeist', sans-serif;
+    font-size: 4.5rem;
+    color: #1a1a1a;
+    display: inline-block;
+    will-change: transform, opacity;
+}
+
+.navline-stamp {
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-6deg) scale(0);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.navline-stamp.visible {
+    transform: translateX(-50%) rotate(-6deg) scale(1);
+    opacity: 1;
+}
+
+.navline-stamp-img {
+    width: 120px;
+    height: auto;
+    filter: grayscale(100%) contrast(1.2);
+}
+
+
+
+
+/* ==========================================================================
+   ABOUT SECTION — SEQUENTIAL SLIDE-IN
+   ========================================================================== */
+
+.section-about {
+    position: relative;
+    min-height: 100vh;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.about-sticky-container {
+    height: 300vh; /* Aumentado para dar tempo às 3 animações sequenciais */
+    position: relative;
+}
+
+.about-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Janela/máscara da direita onde as fotos aparecem */
+.about-slideshow-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Cada imagem é posicionada absolutamente, uma sobre a outra */
+/* O JS controla o translateX para o efeito de slide */
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Estado inicial: fora do ecrã à direita e invisível */
+    transform: translateX(110%) rotate(0deg) scale(1);
+    opacity: 0;
+
+    /* SEM transition aqui — o JS usa requestAnimationFrame via scroll para
+       controlar frame-a-frame. Deixamos apenas um amortecedor mínimo. */
+    will-change: transform, opacity;
+}
+
+/* Slide 1 fica na base (z mais baixo) */
+.slide-1 { z-index: 1; }
+/* Slide 2 fica em cima do 1 */
+.slide-2 { z-index: 2; }
+/* Slide 3 fica no topo */
+.slide-3 { z-index: 3; }
+
+
+/* Conteúdo da esquerda (ID card + bio) — igual ao original */
+.about-layout-overlay {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.left-content-column {
+    width: 45%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    pointer-events: auto;
+}
+
+.id-card-container {
+    align-self: flex-start;
+}
+
+.id-card-img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    filter: drop-shadow(5px 10px 15px rgba(0,0,0,0.12));
+    transform: rotate(-1.5deg);
+}
+
+.about-text-box {
+    text-align: left;
+}
+
+.bio-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.drop-cap {
+    font-family: 'Zeitgeist', 'Georgia', serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 4px;
+    margin-top: 4px;
+    font-weight: normal;
+}
+
+/* ==========================================================================
+   7. WORK SECTION - PAINTING & POLAROIDS (Zeitgeist)
+   ========================================================================== */
+.work-header {
+    margin-bottom: 40px;
+}
+
+.work-title {
+    font-family: 'Zeitgeist', serif;
+    font-size: 4rem;
+    font-weight: normal;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.work-subtitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Container que dá espaço ao scroll das 3 fases */
+.projects-sticky-container {
+    height: 500vh;
+    position: relative;
+    margin-top: 50px;
+}
+
+/* Prende o stage no ecrã */
+.projects-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Cada card de projeto */
+.project-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* Estado inicial: invisível e sem escala (JS toma conta) */
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+
+    will-change: transform, opacity;
+    cursor: pointer;
+    text-decoration: none;
+    color: #1a1a1a;
+
+    /* Fundo tipo polaroid */
+    background: #fff;
+    padding: 14px 14px 40px 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+
+/* Wrapper do vídeo dentro do card */
+.project-card-media {
+    width: 280px;
+    height: 360px;
+    overflow: hidden;
+    background: #000;
+}
+
+.project-card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-card-media video {
+    filter: grayscale(0%);
+}
+
+/* Caption estilo máquina de escrever */
+.project-card-caption {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   8. SKINCODE BLOCK
+   ========================================================================== */
+.skincode-block {
+    text-align: center;
+    margin: 120px 0;
+}
+
+.skincode-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.skincode-title {
+    font-family: 'Zeitgeist', serif;
+    font-style: italic;
+    font-size: 5rem;
+    font-weight: normal;
+}
+
+.skincode-sub {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    text-transform: lowercase;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FREEMADE SECTION
+   ========================================================================== */
+
+.freemade-section {
+    position: relative;
+    padding: 0;
+}
+
+/* HEADER */
+.freemade-header {
+    padding: 100px 50px 60px 50px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.freemade-title {
+    font-family: 'Zeitgeist', serif;
+    font-style: italic;
+    font-size: 5rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.freemade-sub {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-top: 12px;
+}
+
+/* ==========================================================================
+   PINTURAS — scroll horizontal via scroll vertical
+   ========================================================================== */
+
+.freemade-paintings-container {
+    /* altura = 100vh fixo + espaço para scroll pelas 6 pinturas */
+    height: 500vh;
+    position: relative;
+}
+
+.freemade-paintings-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.freemade-paintings-track {
+    display: flex;
+    gap: 24px;
+    padding: 0 60px;
+    will-change: transform;
+    /* JS controla o translateX */
+}
+
+.painting-item {
+    position: relative;
+    flex-shrink: 0;
+    width: 420px;
+    height: 540px;
+    overflow: hidden;
+    cursor: default;
+}
+
+.painting-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.painting-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+/* título aparece no hover */
+.painting-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px 18px 20px;
+    font-family: 'Zeitgeist', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.painting-item:hover .painting-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   VÍDEOS — sentido oposto, não clicáveis
+   ========================================================================== */
+
+.freemade-videos-container {
+    height: 500vh;
+    position: relative;
+}
+
+.freemade-videos-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.freemade-videos-track {
+    display: flex;
+    gap: 24px;
+    padding: 0 60px;
+    will-change: transform;
+    /* JS controla translateX no sentido oposto */
+}
+
+
+/* ==========================================================================
+   VÍDEOS FREEMADE — substitui os estilos .video-item anteriores
+   ========================================================================== */
+
+.video-item {
+    position: relative;
+    flex-shrink: 0;
+    width: 520px;
+    height: 300px;
+    overflow: hidden;
+    cursor: default;
+}
+
+.video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.4s ease;
+}
+
+/* overlay escurece ligeiramente no hover para destacar controlos */
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.65) 0%,
+            rgba(0,0,0,0.0) 50%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px 20px;
+    gap: 10px;
+}
+
+.video-item:hover .video-overlay {
+    opacity: 1;
+}
+
+/* título */
+.video-title {
+    font-family: 'Zeitgeist', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #fff;
+    pointer-events: none;
+    line-height: 1.2;
+    transform: translateY(6px);
+    transition: transform 0.3s ease;
+}
+
+.video-item:hover .video-title {
+    transform: translateY(0);
+}
+
+/* botão mute/unmute */
+.video-unmute-btn {
+    align-self: flex-end;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, border 0.2s ease;
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+}
+
+.video-unmute-btn:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: #fff;
+}
+
+/* estado inicial: mostra ícone muted, esconde unmuted */
+.video-unmute-btn .icon-unmuted { display: none; }
+.video-unmute-btn .icon-muted   { display: inline; }
+
+/* quando o vídeo está unmuted */
+.video-item.is-unmuted .video-unmute-btn .icon-muted   { display: none; }
+.video-item.is-unmuted .video-unmute-btn .icon-unmuted { display: inline; }
+
+/* borda subtil quando está a tocar com som */
+.video-item.is-unmuted {
+    outline: 1px solid rgba(255,255,255,0.3);
+}
+
+
+
+/* Vídeo formato 1:1 */
+.video-item.square {
+    width: 300px;
+    height: 300px;
+}
+
+
+.painting-item.landscape {
+    width: 720px;
+    height: 405px;
+}
+
+.painting-item.fullhd {
+    width: 760px;
+    height: 428px;
+}
+
+.freemade-paintings-track {
+    align-items: center; /* estava sem isto, alinha pelo centro vertical */
+}
+
+#freemadeVideos2 {
+    height: 200vh; /* menos vídeos, menos scroll necessário */
+    margin-top: 0;
+}
+
+.painting-item,
+.painting-item.landscape,
+.painting-item.fullhd {
+    align-self: center; /* garante que cada item se alinha no eixo vertical */
+}
+
+/* ============================================================
+   10.SONDER — CSS
+
+   ============================================================ */
+.sonder-section {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    background: #000;
+}
+
+/* vídeo ocupa a largura toda na proporção correta */
+.sonder-bg {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.sonder-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* era cover — agora mostra tudo sem cortar */
+    display: block;
+    background: #000;
+}
+
+/* overlay já não faz sentido, esconde */
+.sonder-bg-overlay {
+    display: none;
+}
+
+/* conteúdo fica por baixo do vídeo */
+.sonder-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 50px 60px 60px 60px;
+    background: #000;
+    color: #fff;
+    align-items: start;
+}
+
+
+/* barra topo */
+.sonder-top-bar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 16px;
+    margin-bottom: 0;
+    align-self: end;
+    padding-top: 100px;
+}
+
+.sonder-tag,
+.sonder-year-tag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.45);
+}
+
+/* título */
+.sonder-main-title {
+    grid-column: 1;
+    grid-row: 2;
+    font-family: 'Zeitgeist', serif;
+    font-style: italic;
+    font-size: clamp(3.5rem, 7vw, 7.5rem);
+    font-weight: normal;
+    color: #fff;
+    line-height: 0.92;
+    letter-spacing: -2px;
+    margin-top: 30px;
+    align-self: end;
+}
+
+/* quote */
+.sonder-quote {
+    grid-column: 1;
+    grid-row: 3;
+    font-family: 'Zeitgeist', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.55;
+    margin-top: 24px;
+    align-self: end;
+}
+
+/* coluna da direita */
+.sonder-body {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-self: end;
+}
+
+.sonder-date {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+}
+
+.sonder-desc {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    max-width: 460px;
+}
+
+/* controlos */
+.sonder-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.sonder-btn-play,
+.sonder-btn-mute {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.sonder-btn-play:hover,
+.sonder-btn-mute:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #fff;
+}
+
+.sonder-btn-play .icon-pause  { display: none; }
+.sonder-btn-play.is-playing .icon-play  { display: none; }
+.sonder-btn-play.is-playing .icon-pause { display: inline; }
+
+.sonder-btn-mute .icon-sound  { display: none; }
+.sonder-btn-mute.is-unmuted .icon-muted { display: none; }
+.sonder-btn-mute.is-unmuted .icon-sound { display: inline; }
+
+.sonder-progress-wrap {
+    flex: 1;
+}
+
+.sonder-progress,
+.sonder-volume {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.sonder-volume {
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.sonder-progress::-webkit-slider-thumb,
+.sonder-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 11px;
+    height: 11px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* ==========================================================================
+   11. FOOTER SECTION & NEWSLETTER
+   ========================================================================== */
+.section-footer {
+    background: #000;
+    color: #fff;
+    justify-content: space-between;
+    padding-top: 80px;
+}
+
+.newsletter-box {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #444;
+}
+
+.input-field {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 20px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.btn-subscribe {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 0 40px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.btn-subscribe:hover {
+    background: #ddd;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 120px;
+    border-top: 1px solid #222;
+    padding-top: 40px;
+}
+
+.author-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.author-info a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.author-info a:hover {
+    color: #fff;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
+}
+
+.social-links a:hover {
+    border-bottom: 1px solid #fff;
+}

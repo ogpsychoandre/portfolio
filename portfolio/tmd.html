@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristal | ZAEvsl</title>
+    <style>
+        @font-face {
+            font-family: 'AstonScript';
+            src: url('assets/Aston Script.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Zeitgeist';
+            src: url('assets/Zeitgeist MT Std Italic.otf') format('opentype');
+            font-style: italic;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        .paper-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('assets/paper-texture.jpg');
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+            z-index: 900;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(6px);
+        }
+
+        .navbar nav a, .logo-top {
+            font-family: 'AstonScript', sans-serif;
+            font-size: 2.2rem;
+            color: #333;
+            text-decoration: none;
+            margin-right: 35px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .navbar nav a:hover, .logo-top:hover {
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .project-page {
+            padding: 140px 50px 80px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .project-title-block h1 {
+            font-family: 'Zeitgeist', serif;
+            font-style: italic;
+            font-size: 5rem;
+            font-weight: normal;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 30px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        .project-description {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #333;
+            max-width: 560px;
+        }
+
+        .project-description p + p {
+            margin-top: 16px;
+        }
+
+        .project-hero-media {
+            width: 100%;
+            aspect-ratio: 5/3;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .project-hero-media video,
+        .project-hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .project-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .project-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .project-grid.cols-1 { grid-template-columns: 1fr; }
+
+        .grid-item {
+            overflow: hidden;
+            background: #111;
+            aspect-ratio: 1/1;
+        }
+
+        .grid-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+
+        .grid-item img,
+        .grid-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.1);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+
+        .grid-item:hover img,
+        .grid-item:hover video {
+            transform: scale(1.04);
+            filter: contrast(1);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 80px;
+            font-family: 'AstonScript', sans-serif;
+            font-size: 1.8rem;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.3s, color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            margin: 60px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="paper-overlay"></div>
+
+<header class="navbar">
+    <nav>
+        <a href="index.html#contact">contact</a>
+        <a href="index.html#about">about</a>
+        <a href="index.html#work">work</a>
+    </nav>
+    <div class="logo-top"><a href="index.html" style="text-decoration:none;color:inherit;">andrè.prt</a></div>
+</header>
+
+<main class="project-page">
+
+    <div class="project-header">
+        <div class="project-title-block">
+            <h1>"Cristal"</h1>
+            <div class="project-meta">
+                <span>Motion</span>
+                <span>After Effects</span>
+                <span>Visual System</span>
+            </div>
+            <div class="project-description">
+                <p>A project developed as part of the "Typography in digital media" course in the second year of my undergraduate degree.
+                    To develop this project, I chose the poem "Cristal" by Haroldo de Campos (1958) because of how it explores the tension between structure and raw emotion. The author’s approach allows for a deep reflection on the transition from clarity to hunger, creating a dynamic sensory experience.</p>
+                <p>Clarity and fracture — "Cristal" investigates the tension between transparency and opacity, between what is seen and what is refracted.</p>
+                <p>Developed through After Effects and layered physical processes, this project constructs a language of surfaces — reflective, fragile, precise. The material becomes the metaphor.</p>
+            </div>
+        </div>
+
+        <div class="project-hero-media">
+            <video autoplay loop controls playsinline src="assets/CristalTMD3.mp4"></video>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+
+    <div class="project-grid cols-2">
+        <div class="grid-item">
+            <img src="assets/original.png" alt="">
+        </div>
+
+        <div class="grid-item">
+            <img src="assets/image.jpg" alt="">
+        </div>
+    </div>
+
+
+
+    <a href="index.html#work" class="back-link">← back to work</a>
+
+</main>
+
+</body>
+</html>

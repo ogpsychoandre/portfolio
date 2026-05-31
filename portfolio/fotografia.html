@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThisBlood? | ZAEvsl</title>
+    <style>
+        @font-face {
+            font-family: 'AstonScript';
+            src: url('assets/Aston Script.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Zeitgeist';
+            src: url('assets/Zeitgeist MT Std Italic.otf') format('opentype');
+            font-style: italic;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        .paper-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('assets/paper-texture.jpg');
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+            z-index: 900;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(6px);
+        }
+
+        .navbar nav a, .logo-top {
+            font-family: 'AstonScript', sans-serif;
+            font-size: 2.2rem;
+            color: #333;
+            text-decoration: none;
+            margin-right: 35px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .navbar nav a:hover, .logo-top:hover {
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* PAGE */
+        .project-page {
+            padding: 140px 50px 80px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* HEADER BLOCK */
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .project-title-block h1 {
+            font-family: 'Zeitgeist', serif;
+            font-style: italic;
+            font-size: 5rem;
+            font-weight: normal;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 30px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        .project-description {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #333;
+            max-width: 560px;
+        }
+
+        .project-description p + p {
+            margin-top: 16px;
+        }
+
+        /* HERO MEDIA */
+        .project-hero-media {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .project-hero-media video,
+        .project-hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* GRID */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .project-grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .project-grid.cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .project-grid.cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        .grid-item {
+            overflow: hidden;
+            background: #111;
+            grid-column: span 2;
+            aspect-ratio: 4/3;
+        }
+
+        .grid-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+
+        .grid-item.tall {
+            grid-row: span 2;
+        }
+
+        .grid-item img,
+        .grid-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.1);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+
+        .grid-item:hover img,
+        .grid-item:hover video {
+            transform: scale(1.04);
+            filter: contrast(1);
+        }
+
+        /* BACK LINK */
+        .back-link {
+            display: inline-block;
+            margin-top: 80px;
+            font-family: 'AstonScript', sans-serif;
+            font-size: 1.8rem;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.3s, color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #000;
+            border-bottom: 1px solid #000;
+        }
+
+        /* DIVIDER */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            margin: 60px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="paper-overlay"></div>
+
+<header class="navbar">
+    <nav>
+        <a href="index.html#contact">contact</a>
+        <a href="index.html#about">about</a>
+        <a href="index.html#work">work</a>
+    </nav>
+    <div class="logo-top"><a href="index.html" style="text-decoration:none;color:inherit;">andrè.prt</a></div>
+</header>
+
+<main class="project-page">
+
+    <div class="project-header">
+        <div class="project-title-block">
+            <h1>"ThisBlood?"</h1>
+            <div class="project-meta">
+                <span>Visual Art</span>
+                <span>Photography</span>
+                <span>Mixed Media</span>
+            </div>
+            <div class="project-description">
+                <p>This work explores photography as a space of bodily inscription. Inspired by Helena Almeida’s practice, I use my own body as both subject and gesture, activating the architectural space through action.</p>
+                <p>A work that questions the origin and meaning of what flows beneath the surface. Layered between the physical and the digital, "ThisBlood?" navigates the tension between identity and rupture — what is inherited, what is chosen, and what remains.</p>
+                <p>Built from mixed media compositions combining analogue photography, painted intervention, and digital processing. Each image holds a trace of the body's language, translated through gesture and material.</p>
+            </div>
+        </div>
+
+        <div class="project-hero-media">
+            <video autoplay loop muted playsinline src="assets/ThisBlood.mp4"></video>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ROW 1: 4 cols -->
+    <div class="project-grid">
+        <div class="grid-item"><img src="assets/foto1.jpg" alt=""></div>
+        <div class="grid-item"><img src="assets/foto2.jpg" alt=""></div>
+    </div>
+
+    <!-- ROW 2: wide + 2 -->
+    <div class="project-grid" style="margin-top:6px">
+        <div class="grid-item"><img src="assets/foto4.jpg" alt=""></div>
+        <div class="grid-item"><img src="assets/foto3.jpg" alt=""></div>
+    </div>
+
+    <!-- ROW 3: 3 cols -->
+    <div class="project-grid" style="margin-top:6px">
+        <div class="grid-item"><img src="assets/port1.jpg" alt=""></div>
+        <div class="grid-item"><img src="assets/port2.jpg" alt=""></div>
+    </div>
+
+    <a href="index.html#work" class="back-link">← back to work</a>
+
+</main>
+
+</body>
+</html>
